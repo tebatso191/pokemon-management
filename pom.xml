@@ -6,13 +6,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.6.RELEASE</version>
+        <version>2.3.3.RELEASE</version>
         <relativePath/>
     </parent>
 
     <groupId>za.co.standardbank.card</groupId>
     <artifactId>pokemon-management</artifactId>
-    <version>latest</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>Pokemon Management Microservice</name>
     <description>This is Pokemon Microservice Management. It is using Java and Springboot.</description>
     <packaging>jar</packaging>
