@@ -4,7 +4,7 @@ This Project is using Java to consume Pokemon API
 
 
 ## Installation
-
+AWSCodePipelineServiceRole-eu-west-1-pokemon-management-pipelin
 ## Useful Links
 
 - [Swagger Docs](http://localhost:8181/microservice-docs)
