@@ -1,0 +1,22 @@
+
+package za.co.standardbank.card.dto.response;
+
+import com.google.gson.annotations.Expose;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class Name {
+    @JsonProperty("language")
+    @Expose
+    private LanguageTwo language;
+    @JsonProperty("name")
+    @Expose
+    private String name;
+}

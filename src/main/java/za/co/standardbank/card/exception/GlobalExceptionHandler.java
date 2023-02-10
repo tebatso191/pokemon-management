@@ -1,4 +1,4 @@
-package za.co.standardbank.card.Exception;
+package za.co.standardbank.card.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -11,12 +11,11 @@ import org.springframework.web.client.HttpClientErrorException;
 @ControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
-
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
     public String handleException(Exception ex) {
-        log.error("An Error Occurred: {}",ex.getMessage());
+        log.error("An Error Occurred: {}", ex.getMessage());
         return "An Error Occurred: " + ex.getMessage();
     }
 
@@ -24,7 +23,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
     public String handleIllegalArgumentException(IllegalArgumentException ex) {
-        log.error("Bad Request: {}",ex.getMessage());
+        log.error("Bad Request: {}", ex.getMessage());
         return "Bad Request: " + ex.getMessage();
     }
 
@@ -32,7 +31,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
     public String handleIllegalNotFoundException(HttpClientErrorException.NotFound ex) {
-        log.error("Bad Request: {}",ex.getMessage());
+        log.error("Bad Request: {}", ex.getMessage());
         return "Bad Request: " + ex.getMessage();
     }
 }

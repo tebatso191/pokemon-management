@@ -43,6 +43,9 @@ docker push tebatso191/pokemon-management:latest
 
 - [Swagger Docs](http://localhost:8181/microservice-docs)
 - [Swagger UI](http://localhost:8181/swagger-ui/)
+- [Pokemon List](https://pokeapi.co/api/v2/pokemon-species/)
+- [Pokemon Detail](https://pokeapi.co/api/v2/pokemon-species/1)
+- [Pokemon Detail](https://pokeapi.co/api/v2/pokemon-species/)
 - [AWS Console](https://eu-west-1.console.aws.amazon.com/console/home?region=eu-west-1#)
 - [GIT Hub](https://github.com/tebatso191/pokemon-management)
 - [AWS Build Pipeline](https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/pokemon-management-pipeline/view?region=eu-west-1)
