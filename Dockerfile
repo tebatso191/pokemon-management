@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 8080
-ADD target/*.jar app.jar
+ADD target/*.jar pokemon-management.jar
 ENTRYPOINT ["java","-jar","/pokemon-management.jar"]
