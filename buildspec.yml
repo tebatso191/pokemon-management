@@ -4,6 +4,7 @@ phases:
   pre_build:
     commands:
       - echo Build For pokemon-management has started
+      - mvn clean install
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
