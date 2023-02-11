@@ -1,13 +1,17 @@
 package za.co.standardbank.card.service;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import za.co.standardbank.card.dto.response.PokemonDTO;
 
 @ExtendWith(MockitoExtension.class)
 class PokemonServiceTest {
-    PokemonService pokemonService;
+    @Autowired
+    private PokemonService pokemonService;
 
     @BeforeEach
     public void init() {
@@ -24,6 +28,20 @@ class PokemonServiceTest {
 //
 //        //then
 //        Assertions.assertEquals(2, kanbans.size());
+    }
+
+    @Test
+    @Order(1)
+    void shouldTestGetPokemonDetails_thenReturnResults() {
+        //given
+        Long pokemonId = 1L;
+        pokemonService = new PokemonServiceImpl();
+
+        //when
+        PokemonDTO pokemonDetails = pokemonService.getPokemonDetails(pokemonId);
+
+        //then
+        //Assertions.assertEquals(2, pokemonDetails.size());
     }
 
 //    @Test

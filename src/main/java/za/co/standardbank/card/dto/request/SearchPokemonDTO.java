@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @SuperBuilder
 @Schema(description = "A Request Object For Pokemon Details")
-public class SearchPokemonRequest {
+public class SearchPokemonDTO {
     @Schema(description = "Search By Name Field")
     @NotNull
     private String name;

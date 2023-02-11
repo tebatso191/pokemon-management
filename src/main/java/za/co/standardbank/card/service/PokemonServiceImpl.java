@@ -9,10 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import za.co.standardbank.card.dto.response.PokemonListResponse;
-import za.co.standardbank.card.dto.response.PokemonResponse;
+import za.co.standardbank.card.dto.response.PokemonDTO;
+import za.co.standardbank.card.dto.response.PokemonListDTO;
 import za.co.standardbank.card.enums.CommonEnum;
-
 
 @Service
 @RequiredArgsConstructor
@@ -26,17 +25,17 @@ public class PokemonServiceImpl implements PokemonService {
     private String pokemonAPI;
 
     @Override
-    public PokemonResponse getPokemonDetails(Long id) {
+    public PokemonDTO getPokemonDetails(Long id) {
         String url = pokemonBaseUrl.concat(POKEMON_API + id);
         return getPokemonResponse(url);
     }
 
-    private PokemonResponse getPokemonResponse(String url) {
-        ResponseEntity<PokemonResponse> responseEntity = restTemplate.getForEntity(url, PokemonResponse.class);
+    private PokemonDTO getPokemonResponse(String url) {
+        ResponseEntity<PokemonDTO> responseEntity = restTemplate.getForEntity(url, PokemonDTO.class);
         HttpStatus statusCode = responseEntity.getStatusCode();
         if (statusCode.is2xxSuccessful()) {
-            PokemonResponse pokemonResponse = responseEntity.getBody();
-            log.info(CommonEnum.RESPONSE_BODY_LOG.getValue(), new Gson().toJson(pokemonResponse));
+            PokemonDTO pokemonDTO = responseEntity.getBody();
+            log.info(CommonEnum.RESPONSE_BODY_LOG.getValue(), new Gson().toJson(pokemonDTO));
             return responseEntity.getBody();
         } else {
             log.error("Something went wrong. The API Call to : {} Was Unsuccessful.", url);
@@ -45,13 +44,13 @@ public class PokemonServiceImpl implements PokemonService {
     }
 
     @Override
-    public PokemonListResponse getAListOfPokemon() {
+    public PokemonListDTO getAListOfPokemon() {
         String url = pokemonBaseUrl.concat(POKEMON_API);
-        ResponseEntity<PokemonListResponse> responseEntity = restTemplate.getForEntity(url, PokemonListResponse.class);
+        ResponseEntity<PokemonListDTO> responseEntity = restTemplate.getForEntity(url, PokemonListDTO.class);
         HttpStatus statusCode = responseEntity.getStatusCode();
         if (statusCode.is2xxSuccessful()) {
-            PokemonListResponse pokemonListResponse = responseEntity.getBody();
-            log.info(CommonEnum.RESPONSE_BODY_LOG.getValue(), new Gson().toJson(pokemonListResponse));
+            PokemonListDTO pokemonListDTO = responseEntity.getBody();
+            log.info(CommonEnum.RESPONSE_BODY_LOG.getValue(), new Gson().toJson(pokemonListDTO));
             return responseEntity.getBody();
         } else {
             log.error("Something went wrong. The API Call to : {} Was Unsuccessful.", url);
@@ -60,7 +59,7 @@ public class PokemonServiceImpl implements PokemonService {
     }
 
     @Override
-    public PokemonResponse getPokemonByName(String pokemonName) {
+    public PokemonDTO getPokemonByName(String pokemonName) {
         String url = pokemonBaseUrl.concat(POKEMON_API).concat(pokemonName);
         return getPokemonResponse(url);
     }

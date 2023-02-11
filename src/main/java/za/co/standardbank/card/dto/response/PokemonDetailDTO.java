@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @Schema(description = "A Response Object For Pokemon Details")
-public class PokemonDetailResponse extends CommonResponse {
+public class PokemonDetailDTO extends CommonDTO {
     @Schema(description = "Call Status Field")
     private Boolean test;
 }

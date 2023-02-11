@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PokemonResponse {
+public class PokemonDTO {
     @JsonProperty("base_happiness")
     @Expose
     private Integer baseHappiness;

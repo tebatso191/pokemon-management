@@ -1,58 +1,87 @@
 # Pokemon Management
-Run your Docker image on AWS ECS (Elastic Container Service)
+This is a Spring Boot (Java) based application that consumes Pokémon API and expose the REST endpoints that can be consumed by frontend or Swagger UI. It supports multiple Get HTTP REST method.
 
-This Project is using Java to consume Pokemon API
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+## Prerequisites
+
+In order to run this application you need to install two tools: **Docker** & **Docker Compose**.
+
+Instructions how to install **Docker** on [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Windows](https://docs.docker.com/docker-for-windows/install/), [Mac](https://docs.docker.com/docker-for-mac/install/).
+
+**Docker Compose** is already included in installation packs for *Windows* and *Mac*, so only Ubuntu users needs to follow [this instructions](https://docs.docker.com/compose/install/).
 
 ## Installation
-AWSCodePipelineServiceRole-eu-west-1-pokemon-management-pipelin
+```cmd
+mvn clean istall
+```
+
+## How to run Unit Tests
+```bash
+mvn clean test
+```
+
+## How to run the application
+You can run the process application with Spring boot.
+```bash
+mvn spring-boot:run
+```
+
+## How to run the application in your Java IDE
+Run the project as a Java application in your IDE using Application as the main class.
+
+#### Pokemon (REST API)
+Full list of available REST endpoints could be found in Swagger UI, could be called using link: **http://localhost:8080/microservice-ui**
+
+## Architecture Diagram
+<img width="576" alt="11" src="https://user-images.githubusercontent.com/25712816/91267149-570d0780-e790-11ea-8497-806b30cbcfc2.PNG">
+
 ## Useful Commands
-# springboot-docker-ecs
+Build Docker Image
+```bash
+docker build -f Dockerfile -t pokemon-management .
+```
 
+Run Docker Image
+```bash
+docker run -p 8080:8080 pokemon-management
+```
 
-- Build Docker Image.
-  - docker build -f Dockerfile -t pokemon-management .
-  - mvn spring-boot:build-image
-- docker run -p 8080:8080 pokemon-management
-
-
-Run below commands for docker hub
-docker tag pokemon-management:latest 029460343170.dkr.ecr.eu-west-1.amazonaws.com/pokemon-management-registry
-docker push 029460343170.dkr.ecr.eu-west-1.amazonaws.com/pokemon-management-registry
+Publish Or Push The Docker Image To Docker Hub
+```bash
 docker push tebatso191/pokemon-management:latest
-
-- Run Docker Image.
-
-      docker run --tty --publish 8080:8080 pokemon-management
-
-- Tag Docker Image
-
-      docker tag pokemon-management tebatso191/pokemon-management
-
-- Push Docker Image to Docker Hub
-
-      docker push tebatso191/pokemon-management
-- docker push tebatso191/pokemon-management 
-
-- Application Flow
+```
+Tag Docker Image
+```bash
+docker tag pokemon-management tebatso191/pokemon-management
+```
+Explain Command
+```bash
+pip install foobar
+```
 
 <img width="576" alt="11" src="https://user-images.githubusercontent.com/25712816/91267149-570d0780-e790-11ea-8497-806b30cbcfc2.PNG">
 
-
 ## Useful Links
 
-- [Swagger Docs](http://localhost:8181/microservice-docs)
-- [Swagger UI](http://localhost:8181/swagger-ui/)
-- [Pokemon List](https://pokeapi.co/api/v2/pokemon-species/)
-- [Pokemon Detail](https://pokeapi.co/api/v2/pokemon-species/1)
-- [Pokemon Detail](https://pokeapi.co/api/v2/pokemon-species/)
-- [AWS Console](https://eu-west-1.console.aws.amazon.com/console/home?region=eu-west-1#)
-- [GIT Hub](https://github.com/tebatso191/pokemon-management)
-- [AWS Build Pipeline](https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/pokemon-management-pipeline/view?region=eu-west-1)
-- [AWS Build Pipeline](http://pokemonmanagement-env.eba-ypgcpqdm.eu-west-1.elasticbeanstalk.com/)
-- [AWS ECR](https://eu-west-1.console.aws.amazon.com/ecr/repositories/private/029460343170/pokemon-management-registry?region=eu-west-1)
-- 
-## Architecture Diagram
-## Resource To Be Deleted
-- Elastic
-- S3 
+* [Local Swagger Docs](http://localhost:8080/microservice-docs)
+* [Local Swagger UI](http://localhost:8080/swagger-ui/)
+* [Get Pokémon List From PokeAPI](https://pokeapi.co/api/v2/pokemon-species/)
+* [Get Pokémon Detail By ID From PokeAPI](https://pokeapi.co/api/v2/pokemon-species/1)
+* [Get Pokémon Detail By Name From PokeAPI](https://pokeapi.co/api/v2/pokemon-species/)
+* [GIT Hub Project Repository](https://github.com/tebatso191/pokemon-management)
+* [JWT IO](https://jwt.io/)
+* [AWS Console](https://eu-west-1.console.aws.amazon.com/console/home?region=eu-west-1#)
+* [AWS Pokemon Build Pipeline](https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/pokemon-management-pipeline/view?region=eu-west-1)
+* [AWS ECR](https://eu-west-1.console.aws.amazon.com/ecr/repositories/private/029460343170/pokemon-management-registry?region=eu-west-1)
+
+## License
+[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+## Authors
+Tebatso Mokgokolo 
+
+## Acknowledgments
+
+* [awesome-readme](https://github.com/matiassingers/awesome-readme)

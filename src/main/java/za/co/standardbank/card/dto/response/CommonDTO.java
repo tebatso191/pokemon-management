@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class CommonResponse {
+public class CommonDTO {
     private Boolean success;
     private String message;
     private int code;

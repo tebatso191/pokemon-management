@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class PokemonListResponse {
+public class PokemonListDTO {
     @JsonProperty("count")
     @Expose
     private Integer count;
