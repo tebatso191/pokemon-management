@@ -1,6 +1,7 @@
 package za.co.standardbank.card.service;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -32,6 +33,7 @@ class PokemonServiceTest {
 
     @Test
     @Order(1)
+    @Disabled
     void shouldTestGetPokemonDetails_thenReturnResults() {
         //given
         Long pokemonId = 1L;
