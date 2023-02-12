@@ -60,8 +60,27 @@ Explain Command
 ```bash
 pip install foobar
 ```
+### Deploying Docker Image TO AWS ECR From Local Machine
 
-<img width="576" alt="11" src="https://user-images.githubusercontent.com/25712816/91267149-570d0780-e790-11ea-8497-806b30cbcfc2.PNG">
+Retrieve an authentication token and authenticate your Docker client to your registry. Use the AWS CLI:
+```bash
+aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 029460343170.dkr.ecr.eu-west-1.amazonaws.com
+```
+
+Build your Docker image using the following command. For information on building a Docker file from scratch see the instructions here . You can skip this step if your image is already built:
+```bash
+docker build -t pokemon-management-registry .
+```
+
+After the build completes, tag your image so you can push the image to this repository:
+```bash
+docker tag pokemon-management-registry:latest 029460343170.dkr.ecr.eu-west-1.amazonaws.com/pokemon-management-registry:latest
+```
+
+Run the following command to push this image to your newly created AWS repository:
+```bash
+docker push 029460343170.dkr.ecr.eu-west-1.amazonaws.com/pokemon-management-registry:latest
+```
 
 ## Useful Links
 
@@ -85,3 +104,4 @@ Tebatso Mokgokolo
 ## Acknowledgments
 
 * [awesome-readme](https://github.com/matiassingers/awesome-readme)
+* [AWS CI/CD](https://medium.com/thelorry-product-tech-data/end-to-end-cd-pipeline-amazon-ecs-deployment-using-aws-codepipeline-332b19ca2a9)
