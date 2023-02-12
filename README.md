@@ -32,7 +32,7 @@ mvn spring-boot:run
 Run the project as a Java application in your IDE using Application as the main class.
 
 #### Pokemon (REST API)
-Full list of available REST endpoints could be found in Swagger UI, could be called using link: **http://localhost:8080/microservice-ui**
+Full list of available REST endpoints could be found in Swagger UI, could be called using link: **http://localhost:5000/microservice-ui**
 
 ## Architecture Diagram
 <img width="576" alt="11" src="https://user-images.githubusercontent.com/25712816/91267149-570d0780-e790-11ea-8497-806b30cbcfc2.PNG">
@@ -45,7 +45,7 @@ docker build -f Dockerfile -t pokemon-management .
 
 Run Docker Image
 ```bash
-docker run -p 8080:8080 pokemon-management
+docker run -p 5000:5000 pokemon-management
 ```
 
 Publish Or Push The Docker Image To Docker Hub
@@ -84,8 +84,8 @@ docker push 029460343170.dkr.ecr.eu-west-1.amazonaws.com/pokemon-management-regi
 
 ## Useful Links
 
-* [Local Swagger Docs](http://localhost:8080/microservice-docs)
-* [Local Swagger UI](http://localhost:8080/swagger-ui/)
+* [Local Swagger Docs](http://localhost:5000/microservice-docs)
+* [Local Swagger UI](http://localhost:5000/swagger-ui/)
 * [Get Pokémon List From PokeAPI](https://pokeapi.co/api/v2/pokemon-species/)
 * [Get Pokémon Detail By ID From PokeAPI](https://pokeapi.co/api/v2/pokemon-species/1)
 * [Get Pokémon Detail By Name From PokeAPI](https://pokeapi.co/api/v2/pokemon-species/)
