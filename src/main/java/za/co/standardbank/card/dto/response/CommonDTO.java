@@ -1,19 +1,18 @@
 package za.co.standardbank.card.dto.response;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
-import org.springframework.http.HttpStatus;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder
+@Builder
 public class CommonDTO {
-    private Boolean success;
+    private boolean success;
     private String message;
-    private int code;
-    private HttpStatus httpStatus;
+    private int status;
+    private String error;
     private String type;
 }

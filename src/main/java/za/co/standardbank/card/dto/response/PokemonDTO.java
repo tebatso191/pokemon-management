@@ -80,7 +80,7 @@ public class PokemonDTO {
     private String name;
     @JsonProperty("names")
     @Expose
-    private List<Name> names;
+    private List<PokemonName> names;
     @JsonProperty("order")
     @Expose
     private Integer order;

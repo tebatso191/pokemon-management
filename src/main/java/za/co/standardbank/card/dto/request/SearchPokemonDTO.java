@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 @Schema(description = "A Request Object For Pokemon Details")
 public class SearchPokemonDTO {
-    @Schema(description = "Search By Name Field")
+    @Schema(description = "Search By PokemonName Field")
     @NotNull
     private String name;
 }

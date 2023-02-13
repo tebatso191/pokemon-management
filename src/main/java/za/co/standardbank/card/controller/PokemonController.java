@@ -1,9 +1,7 @@
 package za.co.standardbank.card.controller;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
-import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -16,9 +14,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
-import za.co.standardbank.card.dto.response.PokemonListDTO;
+import za.co.standardbank.card.dto.response.CustomErrorDTO;
 import za.co.standardbank.card.dto.response.PokemonDTO;
+import za.co.standardbank.card.dto.response.PokemonListDTO;
 import za.co.standardbank.card.service.PokemonService;
 
 @RestController
@@ -38,13 +36,13 @@ public class PokemonController {
                     schema = @Schema(implementation = PokemonDTO.class)))
     @ApiResponse(responseCode = "400", description = "Bad Request",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                    schema = @Schema(implementation = HttpClientErrorException.BadRequest.class)))
+                    schema = @Schema(implementation = CustomErrorDTO.class)))
     @ApiResponse(responseCode = "403", description = "Forbidden",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                    schema = @Schema(implementation = HttpClientErrorException.Forbidden.class)))
+                    schema = @Schema(implementation = CustomErrorDTO.class)))
     @ApiResponse(responseCode = "404", description = "Not Found",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                    schema = @Schema(implementation = HttpClientErrorException.NotFound.class)))
+                    schema = @Schema(implementation = CustomErrorDTO.class)))
     @GetMapping(path = {"details/{pokemon-id}"})
     @ResponseBody
     public ResponseEntity<Object> getPokemonDetails(@PathVariable(name = "pokemon-id") Long id) {
@@ -60,13 +58,13 @@ public class PokemonController {
                     schema = @Schema(implementation = PokemonListDTO.class)))
     @ApiResponse(responseCode = "400", description = "Bad Request",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                    schema = @Schema(implementation = HttpClientErrorException.BadRequest.class)))
+                    schema = @Schema(implementation = CustomErrorDTO.class)))
     @ApiResponse(responseCode = "403", description = "Forbidden",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                    schema = @Schema(implementation = HttpClientErrorException.Forbidden.class)))
+                    schema = @Schema(implementation = CustomErrorDTO.class)))
     @ApiResponse(responseCode = "404", description = "Not Found",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                    schema = @Schema(implementation = HttpClientErrorException.NotFound.class)))
+                    schema = @Schema(implementation = CustomErrorDTO.class)))
     @GetMapping(path = {"list"})
     @ResponseBody
     public ResponseEntity<Object> getAListOfPokemon() {
@@ -82,19 +80,19 @@ public class PokemonController {
                     schema = @Schema(implementation = PokemonDTO.class)))
     @ApiResponse(responseCode = "400", description = "Bad Request",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                    schema = @Schema(implementation = HttpClientErrorException.BadRequest.class)))
+                    schema = @Schema(implementation = CustomErrorDTO.class)))
     @ApiResponse(responseCode = "403", description = "Forbidden",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                    schema = @Schema(implementation = HttpClientErrorException.Forbidden.class)))
+                    schema = @Schema(implementation = CustomErrorDTO.class)))
     @ApiResponse(responseCode = "404", description = "Not Found",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                    schema = @Schema(implementation = HttpClientErrorException.NotFound.class)))
+                    schema = @Schema(implementation = CustomErrorDTO.class)))
     @GetMapping(path = {"search"})
     @ResponseBody
     public ResponseEntity<Object> getPokemonByName(@RequestParam(value = "pokemon-name", defaultValue = "bulbasaur") String pokemonName) {
-        log.info("Started Getting Pokemon By Name. Request Param : {}", pokemonName);
+        log.info("Started Getting Pokemon By PokemonName. Request Param : {}", pokemonName);
         PokemonDTO pokemonDTO = pokemonService.getPokemonByName(pokemonName);
-        log.info("Completed Getting Pokemon By Name. Request Param : {}", pokemonName);
+        log.info("Completed Getting Pokemon By PokemonName. Request Param : {}", pokemonName);
         return new ResponseEntity<>(pokemonDTO, HttpStatus.OK);
     }
 }

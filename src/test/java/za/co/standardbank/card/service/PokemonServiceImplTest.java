@@ -20,7 +20,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class PokemonServiceImplTest {
+class PokemonServiceImplTest {
     @Mock
     private RestTemplate restTemplate;
     @InjectMocks
@@ -52,7 +52,7 @@ public class PokemonServiceImplTest {
     }
 
     @Test
-     void getAListOfPokemon_ShouldReturnPokemonListDTO() {
+    void getAListOfPokemon_ShouldReturnPokemonListDTO() {
         PokemonListDTO pokemonListDTO = new PokemonListDTO();
         when(restTemplate.getForEntity(anyString(), any())).thenReturn(ResponseEntity.ok(pokemonListDTO));
 
@@ -70,7 +70,7 @@ public class PokemonServiceImplTest {
     }
 
     @Test
-     void getPokemonByName_ShouldReturnPokemonDTO() {
+    void getPokemonByName_ShouldReturnPokemonDTO() {
         String pokemonName = "pikachu";
         PokemonDTO pokemonDTO = new PokemonDTO();
         when(restTemplate.getForEntity(anyString(), any())).thenReturn(ResponseEntity.ok(pokemonDTO));

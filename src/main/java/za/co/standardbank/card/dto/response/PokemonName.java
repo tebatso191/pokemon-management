@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Name {
+public class PokemonName {
     @JsonProperty("language")
     @Expose
     private LanguageTwo language;

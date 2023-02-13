@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import za.co.standardbank.card.dto.request.AuthenticationDTO;
 import za.co.standardbank.card.dto.response.AuthenticatedDTO;
+import za.co.standardbank.card.exception.CustomException;
 import za.co.standardbank.card.model.User;
 import za.co.standardbank.card.repository.UserRepository;
 import za.co.standardbank.card.util.JwtUtil;
@@ -28,7 +29,7 @@ public class AuthenticationServiceImpl implements AuthenticationService, UserDet
     private UserRepository repository;
 
     @Override
-    public AuthenticatedDTO authenticateUser(AuthenticationDTO authenticationDTO) throws Exception {
+    public AuthenticatedDTO authenticateUser(AuthenticationDTO authenticationDTO) throws CustomException {
         new UsernamePasswordAuthenticationToken(authenticationDTO.getUserName(), authenticationDTO.getPassword());
         String generateToken = jwtUtil.generateToken(authenticationDTO.getUserName());
         if (StringUtils.hasText(generateToken)) {
@@ -37,7 +38,7 @@ public class AuthenticationServiceImpl implements AuthenticationService, UserDet
                     .build();
         } else {
             log.warn("Error Occurred.Could Not Validate The Token.");
-            throw new Exception("Error Occurred. Could Not Authenticate the user");
+            throw new CustomException("Error Occurred. Could Not Authenticate the user");
         }
     }
 

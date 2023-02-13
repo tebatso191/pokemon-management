@@ -35,7 +35,7 @@ public class PokemonServiceImpl implements PokemonService {
         HttpStatus statusCode = responseEntity.getStatusCode();
         if (statusCode.is2xxSuccessful()) {
             PokemonDTO pokemonDTO = responseEntity.getBody();
-            log.info(CommonEnum.RESPONSE_BODY_LOG.getValue(), new Gson().toJson(pokemonDTO));
+            log.info(CommonEnum.LOG_RESPONSE_BODY.getValue(), new Gson().toJson(pokemonDTO));
             return responseEntity.getBody();
         } else {
             log.error("Something went wrong. The API Call to : {} Was Unsuccessful.", url);
@@ -50,7 +50,7 @@ public class PokemonServiceImpl implements PokemonService {
         HttpStatus statusCode = responseEntity.getStatusCode();
         if (statusCode.is2xxSuccessful()) {
             PokemonListDTO pokemonListDTO = responseEntity.getBody();
-            log.info(CommonEnum.RESPONSE_BODY_LOG.getValue(), new Gson().toJson(pokemonListDTO));
+            log.info(CommonEnum.LOG_RESPONSE_BODY.getValue(), new Gson().toJson(pokemonListDTO));
             return responseEntity.getBody();
         } else {
             log.error("Something went wrong. The API Call to : {} Was Unsuccessful.", url);

@@ -33,6 +33,6 @@ build/
 .vscode/
 
 ### Custom Ignore ###
-/logs
+logs/
 
 

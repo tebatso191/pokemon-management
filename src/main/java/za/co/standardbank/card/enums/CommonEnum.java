@@ -2,7 +2,7 @@ package za.co.standardbank.card.enums;
 
 public enum CommonEnum {
     EXCEPTION("EXCEPTION"),
-    RESPONSE_BODY_LOG("Response Body: {}"),
+    LOG_RESPONSE_BODY("Response Body: {}"),
     SUCCESS("Success");
 
     private final String value;
