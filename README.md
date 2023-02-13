@@ -52,7 +52,7 @@ ECS (Elastic Container Service): This service pulls the docker image from ECR an
 5. CodePipeline to automate a process.
 
 ## Architecture Diagram
-<img width="576" alt="11" src="https://user-images.githubusercontent.com/25712816/91267149-570d0780-e790-11ea-8497-806b30cbcfc2.PNG">
+![Pokemon-architecture](https://user-images.githubusercontent.com/30393007/218535160-4e6fc52b-cb89-4324-81d9-2ada3576409a.JPG
 
 ## Useful Commands
 Build Docker Image
