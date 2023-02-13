@@ -34,6 +34,23 @@ Run the project as a Java application in your IDE using Application as the main 
 #### Pokemon (REST API)
 Full list of available REST endpoints could be found in Swagger UI, could be called using link: **http://localhost:5000/microservice-ui**
 
+## CI/CD
+
+CodePipeline: This service will create a pipeline by combining all the above services and managing the CI/CD process.
+
+CodeBuild: AWS CodeBuild is used to build the code. To build the code, AWS search for a buildspec yml file.
+
+ECR (Elastic Container Registry): Amazon Elastic Container Registry (ECR) is a fully managed container registry that makes it easy to store, manage, share, and deploy your container images and artifacts anywhere.
+
+ECS (Elastic Container Service): This service pulls the docker image from ECR and deploys the docker image in EC2 or as serverless (Fargate). Here, in this tutorial, we will use the Fargate type launch.
+
+## How Our Pokemon-Management CI/CD Works?
+1. Manage your source code.
+2. Manage your docker image by ECR.
+3. Build a docker image.
+4. Docker image deployment to ECS.
+5. CodePipeline to automate a process.
+
 ## Architecture Diagram
 <img width="576" alt="11" src="https://user-images.githubusercontent.com/25712816/91267149-570d0780-e790-11ea-8497-806b30cbcfc2.PNG">
 
@@ -56,9 +73,10 @@ Tag Docker Image
 ```bash
 docker tag pokemon-management tebatso191/pokemon-management
 ```
-Explain Command
+Validate Your build-spec
 ```bash
-pip install foobar
+aws codebuild validate-build-spec --build-spec=buildspec.yml
+
 ```
 ### Deploying Docker Image TO AWS ECR From Local Machine
 
@@ -105,3 +123,4 @@ Tebatso Mokgokolo
 
 * [awesome-readme](https://github.com/matiassingers/awesome-readme)
 * [AWS CI/CD](https://medium.com/thelorry-product-tech-data/end-to-end-cd-pipeline-amazon-ecs-deployment-using-aws-codepipeline-332b19ca2a9)
+* [AWS CI/CD](https://priyank-agarwal.medium.com/deploy-spring-boot-docker-app-through-aws-complete-ci-cd-process-codepipeline-codebuild-ecr-4fe489eab74d)
