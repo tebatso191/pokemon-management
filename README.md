@@ -105,7 +105,7 @@ docker push 029460343170.dkr.ecr.eu-west-1.amazonaws.com/pokemon-management-regi
 * [Local Swagger UI](http://localhost:5000/swagger-ui/)
 * [Get Pokémon List From PokeAPI](https://pokeapi.co/api/v2/pokemon-species/)
 * [Get Pokémon Detail By ID From PokeAPI](https://pokeapi.co/api/v2/pokemon-species/1)
-* [Get Pokémon Detail By Name From PokeAPI](https://pokeapi.co/api/v2/pokemon-species/)
+* [Get Pokémon Detail By Name From PokeAPI](https://pokeapi.co/api/v2/pokemon-species/bulbasaur)
 * [GIT Hub Project Repository](https://github.com/tebatso191/pokemon-management)
 * [JWT IO](https://jwt.io/)
 * [AWS Console](https://eu-west-1.console.aws.amazon.com/console/home?region=eu-west-1#)
